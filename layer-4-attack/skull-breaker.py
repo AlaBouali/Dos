@@ -347,7 +347,7 @@ print"""\033[92m
   ################################  """
 u=raw_input('\n\n      TARGET:\n      (www.example.com or IP)\n      >')
 p=input('\n      PORT:\n      >')
-t=input('\n      THREADS:\n      (500<threads<10 000)\n      >')
+t=input('\n      THREADS:\n      (500<threads<1000)\n      >')
 i=0
 def k():
  global i
