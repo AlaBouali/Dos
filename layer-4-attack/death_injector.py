@@ -29,7 +29,7 @@ print"""\033[92m
      hello there and welcome!!!
   this is Chaotic Mind's property 
   so expect an exciting experience 
-  for you with this Dos tool 😊 
+  for you with this Dos tool
 
 
   Tool:
