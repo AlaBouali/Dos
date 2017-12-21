@@ -364,12 +364,14 @@ def so():
   pass
 
 class HTTPThread(threading.Thread):
-	def run(self):
-		try:
-			 so()
-		except Exception, ex:
-			pass
+ def run(self):
+  try:
+   while True:
+    so()
+  except Exception, ex:
+   pass
 
-while True:
-  t = HTTPThread()
-  t.start()
+
+for x in range(1000):
+ t = HTTPThread()
+ t.start()
